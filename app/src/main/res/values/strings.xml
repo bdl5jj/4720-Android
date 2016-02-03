@@ -1,0 +1,31 @@
+<resources>
+    <string name="concert">See a concert at the Charlottesville Pavillion</string>
+    <string name="lighting">See the Lighting of the Lawn</string>
+    <string name="cavman">High-five CavMan</string>
+    <string name="sing">Sing the Good Old Song</string>
+    <string name="streak">Streak the Lawn</string>
+    <string name="dorm">Have a dorm reunion</string>
+    <string name="BBQ">Grab some BBQ in Belmont</string>
+    <string name="musiclib">Study in the Music Library</string>
+    <string name="mcgregor">Read in the McGregor Room</string>
+    <string name="volunteer">Volunteer in the Charlottesville community</string>
+    <string name="bilt">Survive at the Biltmore</string>
+    <string name="och">See a show at Old Cabell Hall</string>
+    <string name="beta">Paint Beta Bridge</string>
+    <string name="bluehole">Rope swing at Blue Hole</string>
+    <string name="humpback">Watch the sunrise from Humpback Rock</string>
+    <string name="jpj">Attend an event at JPJ</string>
+    <string name="market">Visit the Farmer\'s Market Downtown</string>
+    <string name="carter">Pick fruit at Carter Mountain</string>
+    <string name="revisit">Revisit your first-year dorm</string>
+    <string name="trickortreat">Participate in Trick-or-Treating on the Lawn</string>
+    <string name="hoo">Be a crazy Hoo Crew member</string>
+    <string name="poe">Visit Edgar Allen Poe\'s room</string>
+    <string name="garden">Read a book in your favorite garden</string>
+    <string name="football">Dress for the day at home football games</string>
+    <string name="stacks">Explore Alderman stacks</string>
+    <string name="declaration">See the Declaration in Special Collections</string>
+    <string name="skyline">Take a drive up skyline</string>
+    <string name="app_name">UVaBucketList</string>
+
+</resources>
