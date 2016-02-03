@@ -23,7 +23,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/sing"
-                android:id="@+id/checkBox" />
+                android:id="@+id/checkBox"
+                android:checked="false" />
+
+
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
