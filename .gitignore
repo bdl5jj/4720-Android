@@ -33,3 +33,4 @@ proguard/
 
 # Workspace
 ./idea/workspace.xml
+./idea
