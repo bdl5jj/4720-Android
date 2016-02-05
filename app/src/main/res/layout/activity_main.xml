@@ -143,14 +143,15 @@
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/football"
-                android:id="@+id/checkBox19" />
+                android:text="@string/stacks"
+                android:id="@+id/checkBox20" />
 
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/stacks"
-                android:id="@+id/checkBox20" />
+                android:text="@string/football"
+                android:id="@+id/checkBox19" />
+
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
