@@ -27,5 +27,8 @@
     <string name="declaration">See the Declaration in Special Collections</string>
     <string name="skyline">Take a drive up skyline</string>
     <string name="app_name">UVaBucketList</string>
+    <string name="names">Ben Lee and Claire Trivisonno</string>
+    <string name="course_name">CS4720</string>
+    <string name="BBQ_info">Head to Belmont BBQ for something delicious to eat</string>
 
 </resources>
