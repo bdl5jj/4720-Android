@@ -23,16 +23,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6bb523ec-a053-4fff-b588-ad124c9cf064" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\Claire\AndroidStudioProjects\4720-Android\.idea\libraries\appcompat_v7_23_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Claire\AndroidStudioProjects\4720-Android\.idea\libraries\support_annotations_23_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Claire\AndroidStudioProjects\4720-Android\.idea\libraries\support_v4_23_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Claire\AndroidStudioProjects\4720-Android\app\src\main\java\com\example\cs4720\uvabucketlist\ExpandListAdapter.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Claire\AndroidStudioProjects\4720-Android\app\src\main\java\com\example\cs4720\uvabucketlist\ExpandListChild.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Claire\AndroidStudioProjects\4720-Android\app\src\main\java\com\example\cs4720\uvabucketlist\ExpandListGroup.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Claire\AndroidStudioProjects\4720-Android\app\src\main\res\layout\expandlist_child_item.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Claire\AndroidStudioProjects\4720-Android\app\src\main\res\layout\expandlist_group_item.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/cs4720/uvabucketlist/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/cs4720/uvabucketlist/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="4720-Android.iws" />
@@ -2086,7 +2076,13 @@
       <option name="project" value="LOCAL" />
       <updated>1455039965066</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added lifecycle methods to the MainActivity">
+      <created>1455044146238</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1455044146238</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
