@@ -32,5 +32,6 @@ proguard/
 # Created by .ignore support plugin (hsz.mobi)
 
 # Workspace
-./idea/workspace.xml
-./idea
+/.idea/workspace.xml
+/.idea
+*.iml
