@@ -37,10 +37,13 @@ public class MainActivity extends Activity {
             Map.Entry<TextView, ArrayList<String>> pair = (Map.Entry<TextView, ArrayList<String>>) it.next();
             TextView textView = (TextView) pair.getKey();
             System.out.println(textView.getText().toString());
+            TextView textMod = (TextView) findViewById(R.id.textView27);
+            final String name = (String) pair.getValue().get(0);
             textView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startInfoActivity(v);
+                    startInfoActivity(v, name);
+
                 }
             });
         }
@@ -147,8 +150,9 @@ public class MainActivity extends Activity {
         super.onStop();
     }
 
-    public void startInfoActivity(View view){
+    public void startInfoActivity(View view, String name){
         Intent intent = new Intent(this, InfoActivity.class);
+        intent.putExtra("name",name);
         startActivity(intent);
     }
 }
