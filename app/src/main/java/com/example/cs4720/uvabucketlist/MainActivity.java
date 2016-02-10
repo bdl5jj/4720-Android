@@ -37,12 +37,13 @@ public class MainActivity extends Activity {
             Map.Entry<TextView, ArrayList<String>> pair = (Map.Entry<TextView, ArrayList<String>>) it.next();
             TextView textView = (TextView) pair.getKey();
             System.out.println(textView.getText().toString());
-            TextView textMod = (TextView) findViewById(R.id.textView27);
             final String name = (String) pair.getValue().get(0);
+            final String description = (String) pair.getValue().get(1);
+            final String checked = (String) pair.getValue().get(2);
             textView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startInfoActivity(v, name);
+                    startInfoActivity(v, name, description, checked);
 
                 }
             });
@@ -150,9 +151,11 @@ public class MainActivity extends Activity {
         super.onStop();
     }
 
-    public void startInfoActivity(View view, String name){
+    public void startInfoActivity(View view, String name, String description, String checked){
         Intent intent = new Intent(this, InfoActivity.class);
         intent.putExtra("name",name);
+        intent.putExtra("description", description);
+        intent.putExtra("checked", checked);
         startActivity(intent);
     }
 }
