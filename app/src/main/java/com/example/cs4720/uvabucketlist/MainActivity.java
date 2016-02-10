@@ -53,15 +53,15 @@ public class MainActivity extends Activity {
 
 
     public ArrayList<String> addData(){
-        info.add("0");
-        info.add("1");
-        info.add("2");
-        info.add("3");
-        info.add("4");
-        info.add("5");
-        info.add("6");
-        info.add("7");
-        info.add("8");
+        info.add("Run naked from the steps of the Rotunda down the Lawn, kiss the statue of Homer, and streak back up the Lawn.");
+        info.add("Go back in time a couple years and reunite with all of your first-year hall mates.");
+        info.add("Head off grounds and try a delicious slop bucket from Belmont BBQ");
+        info.add("Make your way to the basement of Old Cabell Hall to hit the books in the Music Library ");
+        info.add("Visit the second floor Alderman and settle in at the room pulled straight out of Hogwarts");
+        info.add("Put your spare time to good use by volunteering in the Charlottesville community");
+        info.add("Stop in at The Biltmore from 5-8 pm on Thursday evenings for discounted drinks and appetizers");
+        info.add("Support the arts at UVa by seeing a show in Old Cabell Hall");
+        info.add("Showcase your artistic talent by painting a message across Beta Bridge on Rugby Road");
         info.add("9");
         info.add("10");
         info.add("11");
