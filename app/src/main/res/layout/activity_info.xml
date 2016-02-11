@@ -12,16 +12,22 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TODO: "
+            android:text="To Do: "
             android:textStyle="bold"
-            android:textSize="18dp"
+            android:textColor="#0c0cb4"
+            android:layout_marginTop="10dp"
+            android:textSize="20dp"
             android:id="@+id/TODO" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:textSize="16dp"
-            android:text=""
+            android:textSize="20dp"
+            android:textColor="#faa30d"
+            android:textStyle="bold"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:text="Test"
             android:id="@+id/textView27" />
 
 
@@ -35,16 +41,20 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="About: "
+            android:text="Description: "
+            android:layout_marginTop="5dp"
             android:textStyle="bold"
-            android:textSize="18dp"
+            android:textSize="20dp"
+            android:textColor="#faa30d"
             android:id="@+id/about" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:text="New Text"
             android:textSize="16dp"
+            android:textColor="#0c0cb4"
             android:id="@+id/textView28" />
 
 
