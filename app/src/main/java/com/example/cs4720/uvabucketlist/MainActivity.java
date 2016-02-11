@@ -2,14 +2,15 @@ package com.example.cs4720.uvabucketlist;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.support.v4.content.LocalBroadcastManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,8 +22,8 @@ public class MainActivity extends Activity {
 
     ArrayList<String> info = new ArrayList<String>();
     HashMap<TextView, ArrayList<String>> items = new HashMap<TextView, ArrayList<String>>();
+    int position = 0;
 
-    public ArrayList<CheckBox> itemList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,17 +37,19 @@ public class MainActivity extends Activity {
         while(it.hasNext()) {
             Map.Entry<TextView, ArrayList<String>> pair = (Map.Entry<TextView, ArrayList<String>>) it.next();
             TextView textView = (TextView) pair.getKey();
-            System.out.println(textView.getText().toString());
+
             final String name = (String) pair.getValue().get(0);
             final String description = (String) pair.getValue().get(1);
-            final String checked = (String) pair.getValue().get(2);
+            final int pos = position;
+
             textView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startInfoActivity(v, name, description, checked);
+                    startInfoActivity(v, name, description, pos);
 
                 }
             });
+            position++;
         }
 
     }
@@ -85,10 +88,8 @@ public class MainActivity extends Activity {
     }
     public HashMap<TextView, ArrayList<String>> getData(ArrayList<String> info){
         TextView curr;
-        CheckBox chk;
         String name = "";
         String description = "";
-        String completed = "";
 
 
         Resources r = getResources();
@@ -101,22 +102,23 @@ public class MainActivity extends Activity {
             int boxId = r.getIdentifier("checkBox" + i, "id", packName);
 
             curr = (TextView) findViewById(id);
-            chk = (CheckBox) findViewById(boxId);
-
-            if(chk.isChecked()){
-                completed = "Completed";
-            }
-
-            else{
-                completed = "Not completed";
-            }
+            final CheckBox chk = (CheckBox)findViewById(boxId);
+            chk.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(chk.isChecked()){
+                        // check out link...
+                    }
+                }
+            });
 
             name = curr.getText().toString();
             description = info.get(i);
 
+            String pos = "" + boxId;
             data.add(name);
             data.add(description);
-            data.add(completed);
+            data.add(pos);
 
             items.put(curr, data);
 
@@ -133,8 +135,7 @@ public class MainActivity extends Activity {
 
     @Override
     protected void onResume(){
-        super.onResume();
-    }
+        super.onResume();    }
 
     @Override
     protected void onDestroy(){
@@ -151,11 +152,19 @@ public class MainActivity extends Activity {
         super.onStop();
     }
 
-    public void startInfoActivity(View view, String name, String description, String checked){
+    public void startInfoActivity(View view, String name, String description, int pos){
+        Resources r = getResources();
+        String packName = getPackageName();
+        int boxId = r.getIdentifier("checkBox" + pos, "id", packName);
+        CheckBox curr = (CheckBox) findViewById(boxId);
+        boolean isChecked = curr.isChecked();
+
+        Log.d("Check Box", ""+isChecked);
+
         Intent intent = new Intent(this, InfoActivity.class);
         intent.putExtra("name",name);
         intent.putExtra("description", description);
-        intent.putExtra("checked", checked);
+        intent.putExtra("checked", isChecked);
         startActivity(intent);
     }
 }
