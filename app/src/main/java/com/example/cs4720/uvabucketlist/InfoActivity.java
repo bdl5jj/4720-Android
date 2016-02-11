@@ -2,10 +2,7 @@ package com.example.cs4720.uvabucketlist;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.v4.content.LocalBroadcastManager;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
@@ -18,7 +15,7 @@ public class InfoActivity extends Activity {
 
         TextView textName = (TextView)findViewById(R.id.textView27);
         TextView textDescription = (TextView) findViewById(R.id.textView28);
-        CheckBox boxState = (CheckBox) findViewById(R.id.checkBox27);
+        final CheckBox boxState = (CheckBox) findViewById(R.id.checkBox27);
         Intent i = getIntent();
         Bundle b = i.getExtras();
 
@@ -31,14 +28,17 @@ public class InfoActivity extends Activity {
             boxState.setChecked(c);
             boxState.refreshDrawableState();
 
-
-
-
         }
 
 
 
+        boxState.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+
+                }
+            }
+        });
     }
-
-
 }
