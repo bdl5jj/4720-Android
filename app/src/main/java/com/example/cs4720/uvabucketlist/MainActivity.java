@@ -9,7 +9,6 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.TextView;
 
 
@@ -89,6 +88,7 @@ public class MainActivity extends Activity {
 
         return info;
     }
+
     public HashMap<TextView, ArrayList<String>> getData(ArrayList<String> info){
         TextView curr;
         String name = "";
@@ -107,19 +107,6 @@ public class MainActivity extends Activity {
             curr = (TextView) findViewById(id);
             final CheckBox chk = (CheckBox) findViewById(boxId);
 
-
-
-            chk.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    if (chk.isChecked()) {
-                        Log.d("Checked: ", "TRUE");
-                    } else {
-                        Log.d("Checked: ", "FALSE");
-                    }
-                }
-            });
-
             name = curr.getText().toString();
             description = info.get(i);
 
@@ -131,26 +118,27 @@ public class MainActivity extends Activity {
             items.put(curr, data);
 
         }
-
-            Log.d("Map Position :", items.entrySet().toString());
-
-
         return items;
-
     }
 
     @Override
     protected void onStart(){
         super.onStart();
-        Log.d("here", "i am in on start");
+
+        Resources r = getResources();
+        String packName = getPackageName();
+
+        for (int i = 0; i < 27; i++) {
+            int boxId = r.getIdentifier("checkBox" + i, "id", packName);
+            CheckBox chk = (CheckBox) findViewById(boxId);
+            chk.setChecked(load(boxId));
+        }
+
         Intent i = getIntent();
         Bundle b = i.getExtras();
         if(b!=null){
-            Log.d("here", " in the !b if statement");
             int id = (int) b.get("id");
             boolean state = (boolean) b.get("state");
-            Log.d("id ", ""+id);
-            Log.d("state: ", ""+state);
             CheckBox curr = (CheckBox) findViewById(id);
             curr.setChecked(state);
         }
@@ -159,6 +147,23 @@ public class MainActivity extends Activity {
     @Override
     protected void onResume(){
         super.onResume();
+
+        Resources r = getResources();
+        String packName = getPackageName();
+        for (int i = 0; i < 27; i++) {
+            int boxId = r.getIdentifier("checkBox" + i, "id", packName);
+            CheckBox chk = (CheckBox) findViewById(boxId);
+            chk.setChecked(load(boxId));
+        }
+
+        Intent i = getIntent();
+        Bundle b = i.getExtras();
+        if(b!=null){
+            int id = (int) b.get("id");
+            boolean state = (boolean) b.get("state");
+            CheckBox curr = (CheckBox) findViewById(id);
+            curr.setChecked(state);
+        }
     }
 
     @Override
@@ -169,19 +174,39 @@ public class MainActivity extends Activity {
     @Override
     protected void onPause(){
         super.onPause();
+        save();
     }
 
     @Override
     protected void onStop(){
         super.onStop();
+        save();
+    }
+
+    protected void save() {
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = sp.edit();
+        Resources r = getResources();
+        String packName = getPackageName();
+
+        for (int i = 0; i < 27; i++) {
+            int boxId = r.getIdentifier("checkBox" + i, "id", packName);
+            final CheckBox chk = (CheckBox) findViewById(boxId);
+            editor.putBoolean(""+boxId, chk.isChecked());
+            editor.commit();
+        }
+    }
+
+    private boolean load(int id){
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        return sp.getBoolean(""+id, false);
+
     }
 
     public void startInfoActivity(View view, String name, String description, int boxId){
         boolean isChecked = false;
         CheckBox curr = (CheckBox) MainActivity.this.findViewById(boxId);
         isChecked = curr.isChecked();
-        Log.d("Check Box", "" + isChecked);
-        Log.d("Position: ", "" + boxId);
 
         Intent intent = new Intent(this, InfoActivity.class);
         intent.putExtra("name",name);
