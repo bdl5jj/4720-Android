@@ -2,8 +2,10 @@ package com.example.cs4720.uvabucketlist;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
@@ -21,7 +23,7 @@ public class MainActivity extends Activity {
 
     ArrayList<String> info = new ArrayList<String>();
     HashMap<TextView, ArrayList<String>> items = new HashMap<TextView, ArrayList<String>>();
-
+    CheckBox curr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,13 +41,15 @@ public class MainActivity extends Activity {
             final String name = (String) pair.getValue().get(0);
             final String description = (String) pair.getValue().get(1);
 
-            String strPos = (String) pair.getValue().get(2);
-            final int pos = Integer.parseInt(strPos);
+            String strID = (String) pair.getValue().get(2);
+            final int id = Integer.parseInt(strID);
+
+            curr = (CheckBox) findViewById(id);
 
             textView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startInfoActivity(v, name, description, pos);
+                    startInfoActivity(v, name, description, id);
 
                 }
             });
@@ -103,12 +107,14 @@ public class MainActivity extends Activity {
             curr = (TextView) findViewById(id);
             final CheckBox chk = (CheckBox) findViewById(boxId);
 
+
+
             chk.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    if(chk.isChecked()){
+                    if (chk.isChecked()) {
                         Log.d("Checked: ", "TRUE");
-                    }else{
+                    } else {
                         Log.d("Checked: ", "FALSE");
                     }
                 }
@@ -126,7 +132,7 @@ public class MainActivity extends Activity {
 
         }
 
-            Log.d("Map Position :",  items.entrySet().toString());
+            Log.d("Map Position :", items.entrySet().toString());
 
 
         return items;
@@ -136,11 +142,24 @@ public class MainActivity extends Activity {
     @Override
     protected void onStart(){
         super.onStart();
+        Log.d("here", "i am in on start");
+        Intent i = getIntent();
+        Bundle b = i.getExtras();
+        if(b!=null){
+            Log.d("here", " in the !b if statement");
+            int id = (int) b.get("id");
+            boolean state = (boolean) b.get("state");
+            Log.d("id ", ""+id);
+            Log.d("state: ", ""+state);
+            CheckBox curr = (CheckBox) findViewById(id);
+            curr.setChecked(state);
+        }
     }
 
     @Override
     protected void onResume(){
-        super.onResume();    }
+        super.onResume();
+    }
 
     @Override
     protected void onDestroy(){
@@ -159,16 +178,16 @@ public class MainActivity extends Activity {
 
     public void startInfoActivity(View view, String name, String description, int boxId){
         boolean isChecked = false;
-
         CheckBox curr = (CheckBox) MainActivity.this.findViewById(boxId);
         isChecked = curr.isChecked();
-        Log.d("Check Box", ""+isChecked);
-        Log.d("Position: ", ""+ boxId);
+        Log.d("Check Box", "" + isChecked);
+        Log.d("Position: ", "" + boxId);
 
         Intent intent = new Intent(this, InfoActivity.class);
         intent.putExtra("name",name);
         intent.putExtra("description", description);
         intent.putExtra("checked", isChecked);
+        intent.putExtra("checkBox", boxId);
 
         startActivity(intent);
     }
