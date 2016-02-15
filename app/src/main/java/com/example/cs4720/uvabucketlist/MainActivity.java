@@ -85,6 +85,12 @@ public class MainActivity extends Activity {
         info.add("Watch the annual Lighting of the Lawn to get into the holiday season with the rest of the University community");
         info.add("High-five UVa's biggest fan, Cavman, while supporting the Hoos at an athletic event");
         info.add("Put your arms around your fellow Hoos and sway back and forth to UVa's alma mater");
+        info.add("Show your student ID to the bus driver and get a free ride on the CAT");
+        info.add("Get a pair of skates and go ice skating in downtown Charlottesville");
+        info.add("Keep a secret from strangers by speaking to a friend across the Whispering Wall");
+        info.add("Bring a blanket to lay on the Lawn and watch the sunrise");
+        info.add("Graduate from the University of Virginia!");
+
 
         return info;
     }
@@ -98,7 +104,7 @@ public class MainActivity extends Activity {
         Resources r = getResources();
         String packName = getPackageName();
 
-        for(int i = 0; i<27; i++){
+        for(int i = 0; i<32; i++){
             ArrayList<String> data = new ArrayList<String>();
 
             int id =  r.getIdentifier("textView" + i, "id", packName);
@@ -128,7 +134,7 @@ public class MainActivity extends Activity {
         Resources r = getResources();
         String packName = getPackageName();
 
-        for (int i = 0; i < 27; i++) {
+        for (int i = 0; i < 32; i++) {
             int boxId = r.getIdentifier("checkBox" + i, "id", packName);
             CheckBox chk = (CheckBox) findViewById(boxId);
             chk.setChecked(load(boxId));
@@ -150,7 +156,7 @@ public class MainActivity extends Activity {
 
         Resources r = getResources();
         String packName = getPackageName();
-        for (int i = 0; i < 27; i++) {
+        for (int i = 0; i < 32; i++) {
             int boxId = r.getIdentifier("checkBox" + i, "id", packName);
             CheckBox chk = (CheckBox) findViewById(boxId);
             chk.setChecked(load(boxId));
@@ -189,7 +195,7 @@ public class MainActivity extends Activity {
         Resources r = getResources();
         String packName = getPackageName();
 
-        for (int i = 0; i < 27; i++) {
+        for (int i = 0; i < 32; i++) {
             int boxId = r.getIdentifier("checkBox" + i, "id", packName);
             final CheckBox chk = (CheckBox) findViewById(boxId);
             editor.putBoolean(""+boxId, chk.isChecked());

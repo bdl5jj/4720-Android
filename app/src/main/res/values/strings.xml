@@ -1,5 +1,5 @@
 <resources>
-    <string name="concert">See a concert at the Charlottesville Pavillion</string>
+    <string name="concert">See a concert at the Charlottesville Pavilion</string>
     <string name="lighting">See the Lighting of the Lawn</string>
     <string name="cavman">High-five CavMan</string>
     <string name="sing">Sing the Good Old Song</string>
@@ -26,6 +26,11 @@
     <string name="stacks">Explore Alderman stacks</string>
     <string name="declaration">See the Declaration in Special Collections</string>
     <string name="skyline">Take a drive up skyline</string>
+    <string name="bus">Catch the Trolley</string>
+    <string name="skate">Ice Skate Downtown</string>
+    <string name="whisper">Tell a secret at the Whispering Wall</string>
+    <string name="lawn">Watch the Sunrise on the Lawn</string>
+    <string name="graduate">Wear the Honor of Honors</string>
     <string name="app_name">UVaBucketList</string>
     <string name="names">Ben Lee and Claire Trivisonno</string>
     <string name="course_name">CS4720</string>
